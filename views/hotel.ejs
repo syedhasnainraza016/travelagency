@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="materialize.min.css">
+    <link rel="stylesheet" href="/ASSETS/fontAwesome/css/all.css">
+    <link href="/agent.css" rel="stylesheet" type="text/css">
+    <title>Document</title>
+</head>
+
+<body>
+    <a class="btn-floating btn-large waves-effect waves-light red" href="/agent/Services"><img
+            src="/ASSETS/icons/back.png" alt=""></a>
+    <form method="POST" id="adminTravelerPanel">
+        <h1>Hotel</h1>
+        <div class="row SearchFields">
+            <div class="input-field col s12">
+                <input id="byID" type="number" name="id" class="validate">
+                <label for="byID">Search By ID</label>
+            </div>
+            <div class="input-field col s12">
+                <input id="byName" type="text" name="name" class="validate">
+                <label for="byName">Search by Name</label>
+            </div>
+            <button type="submit" class="waves-effect waves-light btn-large button">Search!</button>
+            
+        </div>
+        <div class="servicesBG">
+            <a href="/agent/bus" class="agentSOptions">
+                <img id="agentP" src="/ASSETS/imgs/h1.jpg" alt="">
+                <h2>3 Stars</h2>
+            </a>
+            <a href="/agent/bus" class="agentSOptions">
+                <img src="/ASSETS/imgs/h2.jpg" alt="">
+                <h2>5 Stars</h2>
+            </a>
+    
+            <a href="/agent/bus" class="agentSOptions">
+                <img src="/ASSETS/imgs/h3.jpg" alt="">
+                <h2>7 Stats</h2>
+            </a>
+        </div>
+    </div>
+</form>
+        
+        
+    </div>
+    <script src="/materialize.min.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/materialize.min.css">
+    <link href="/adminS.css" rel="stylesheet" type="text/css">
+    <title>Travel Agency Database</title>
+</head>
+
+<body>
+    <a class="btn-floating btn-large waves-effect waves-light back" href="/admin/SignIn"><img
+            src="/ASSETS/icons/back.png" alt=""></a>
+           
+    <div id="adminPanel">
+        <div id="sideBar">
+            <a href="/admin/Panel">
+                <div class="sideBarIcon">
+                    <img src="/ASSETS/icons/revenue.png" alt="">
+                </div>
+            </a>
+            <a href="/admin/PanelAgent">
+                <div class="sideBarIcon">
+                    <img src="/ASSETS/icons/agent.png" alt="">
+                </div>
+            </a>
+            <a href="/admin/PanelTraveller">
+                <div class="sideBarIcon">
+                    <img src="/ASSETS/icons/traveler.png" alt="">
+                </div>
+            </a>
+            <a href="/admin/logout" class="btn btn-secondary">Logout</a>
+        </div>
+      
+
+        <div id="adminTravelerPanel">
+            <h1>Stats And Details</h1>
+            <div class="gotoButtons">
+                <a class="waves-effect waves-light btn-large" id="gotoAdmin" href="/admin/hadd">Goto Hotels</a>
+                <a class="waves-effect waves-light btn-large" id="gotoAgent" href="/admin/fadd">Goto Flights</a>
+                <a class="waves-effect waves-light btn-large" id="gotoTraveler" href="/admin/badd">Goto Buses</a>
+                <a class="waves-effect waves-light btn-large" id="gotoAgent" href="/admin/radd">Goto Resturants</a>
+
+            </div> 
+        </div>
+
+        <script src="/ASSETS/Chart.min.js"></script>
+        <script src="/materialize.min.js"></script>
+        <script>
+           
+        </script>
+
+       
+</body>
+
+</html>

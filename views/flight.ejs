@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="materialize.min.css">
+    <link rel="stylesheet" href="/ASSETS/fontAwesome/css/all.css">
+    <link href="/agent.css" rel="stylesheet" type="text/css">
+    <title>Document</title>
+</head>
+
+<body>
+    <a class="btn-floating btn-large waves-effect waves-light red" href="/agent/Services"><img
+            src="/ASSETS/icons/back.png" alt=""></a>
+
+    <div id="adminTravelerPanel">
+        <h1>Flights</h1>
+        <form action="http://www.google.com" class="row SearchFields">
+           
+            <div class="col s12">
+                <label for="date">Airways Name</label>
+                <input id="date" name="number" type="text">
+            </div>
+            <button type="submit" class="waves-effect waves-light btn-large button">Search!</button>
+        </form>
+        <div class="servicesBG">
+            <a href="/agent/flight" class="agentSOptions">
+                <img id="agentP" src="/ASSETS/imgs/PIA.jpg" alt="">
+                <h2>PIA</h2>
+            </a>
+            <a href="/agent/flight" class="agentSOptions">
+                <img src="/ASSETS/imgs/emr.jpg" alt="">
+                <h2>Emirates</h2>
+            </a>
+    
+            <a href="/agent/flight" class="agentSOptions">
+                <img src="/ASSETS/imgs/qantas.jpg" alt="">
+                <h2>Qantas</h2>
+            </a>
+        </div>
+        
+    </div>
+
+    <script src="/materialize.min.js"></script>
+   
+</body>
+
+</html>

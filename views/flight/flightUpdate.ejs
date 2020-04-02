@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Update Flight</h1>
+  <form action="/admin/fupdate/<%=flight._id%>" method="POST">
+    <div class="form-group">
+      <label for="no">Number</label>
+      <input type="text" class="form-control" id="no" name="no"
+      placeholder="Number" value = '<%= typeof flight.no != 'undefined'
+      ? hotel.no : '' %>' />
+    </div>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name"
+      placeholder="Name" value = '<%= typeof flight.name != 'undefined' ?
+      flight.name : '' %>' />
+    </div>
+    <input type="submit" name="submit" value="Update" class="btn btn-success" />
+  </form>
+  <br />
+  <a href="/admin/fall" class="">
+    <i class="fas fa-home" style="color:green">View List</i>
+  </a>
+</div>
