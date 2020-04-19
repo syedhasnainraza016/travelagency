@@ -32,9 +32,9 @@ exports.create = (req, res) => {
     if (err) {
       return res
         .status(400)
-        .json({ err: "Oops something went wrong! Cannont insert student.." });
+        .json({ err: "Oops something went wrong! Cannont insert agent.." });
     }
-    req.flash("student_add_success_msg", "New Dish added successfully");
+    req.flash("student_add_success_msg", "New Agent added successfully");
     res.redirect("/myagents.route/all");
   });
 };
@@ -43,7 +43,7 @@ exports.details = (req, res) => {
   Student.findById(req.params.id, function(err, student) {
     if (err) {
       return res.status(400).json({
-        err: `Oops something went wrong! Cannont find student with ${req.params.id}.`
+        err: `Oops something went wrong! Cannont find Agent with ${req.params.id}.`
       });
     }
     res.render("myagents/studentDetail", {
@@ -58,7 +58,7 @@ exports.all = (req, res) => {
     if (err) {
       return res
         .status(400)
-        .json({ err: "Oops something went wrong! Cannont find students." });
+        .json({ err: "Oops something went wrong! Cannont find Agent." });
     }
     res.status(200).render("myagents/studentAll", {
       students,
@@ -78,7 +78,7 @@ exports.updateStudent = async (req, res) => {
     return res.status(400).json({
       err: `Oops something went wrong! Cannont update student with ${req.params.id}.`
     });
-  req.flash("student_update_success_msg", "Student updated successfully");
+  req.flash("student_update_success_msg", "Agent updated successfully");
   res.redirect("/student.route/all");
 };
 
@@ -86,9 +86,9 @@ exports.delete = async (req, res) => {
   let result = await Student.deleteOne({ _id: req.params.id });
   if (!result)
     return res.status(400).json({
-      err: `Oops something went wrong! Cannont delete student with ${req.params.id}.`
+      err: `Oops something went wrong! Cannont delete agent with ${req.params.id}.`
     });
-  req.flash("student_del_success_msg", "Student has been deleted successfully");
+  req.flash("student_del_success_msg", "Agent has been deleted successfully");
   res.redirect("/student.route/all");
 };
 
@@ -97,10 +97,10 @@ exports.allReport = (req, res) => {
     if (err) {
       return res
         .status(400)
-        .json({ err: "Oops something went wrong! Cannont find students." });
+        .json({ err: "Oops something went wrong! Cannont find agents." });
     }
     res.status(200).render(
-      "reports/student/allStudent",
+      "reports/student/allAgents",
       {
         students,
         layout: "studentLayout"
@@ -108,10 +108,10 @@ exports.allReport = (req, res) => {
       function(err, html) {
         pdf
           .create(html, options)
-          .toFile("uploads/allStudents.pdf", function(err, result) {
+          .toFile("uploads/Agentsreport.pdf", function(err, result) {
             if (err) return console.log(err);
             else {
-              var datafile = fs.readFileSync("uploads/allStudents.pdf");
+              var datafile = fs.readFileSync("uploads/Agentsreport.pdf");
               res.header("content-type", "application/pdf");
               res.send(datafile);
             }
