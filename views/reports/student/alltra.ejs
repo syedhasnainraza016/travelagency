@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-sm-8">
+          <h2><b>Travelers </b>List</h2>
+        </div>
+      </div>
+    </div>
+    <table class="table table-striped table-hover table-bordered">
+      <thead>
+        <tr>
+          <th>Traveler Email</th>
+          <th class="col-sm-8">Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if(typeof Students != 'undefined'){ %> <%
+        students.forEach(function(student) { %>
+        <tr>
+          <td><%= student.email%></td>
+          <td><%= student.name%></td>
+        </tr>
+        <% }); %> <% } %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
 // Load User model
-const User = require("../models/Agent");
+const User = require("../models/User");
 
 //Login Function
 exports.login = (req, res) => res.render("travelerSignInScreen");

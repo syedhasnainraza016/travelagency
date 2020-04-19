@@ -2,7 +2,7 @@ const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const nodemailer = require('nodemailer');
 // Load User model
-const Agent = require("../models/User");
+const Agent = require("../models/Agent");
 
 //Login Function
 exports.login = (req, res) => res.render("agent/SignInScreen");
