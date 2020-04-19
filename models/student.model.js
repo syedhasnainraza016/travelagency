@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-let HotelSchema = new Schema(
+let StudentSchema = new Schema(
   {
-    no: { type: Number, required: true },
+    roll: { type: Number, required: true },
     name: { type: String, required: true }
   },
   {
@@ -12,4 +12,4 @@ let HotelSchema = new Schema(
 );
 
 // Export the model
-module.exports = mongoose.model("Hotel", HotelSchema);
+module.exports = mongoose.model("Student", StudentSchema);

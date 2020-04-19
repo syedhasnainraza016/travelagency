@@ -5,27 +5,18 @@
         <div class="col-sm-8">
           <h2>
             <b>Hotels </b>List
-            <a href="/admin/hadd" class="">
+            <a href="/hotel.route/add" class="">
               <i class="fas fa-plus-circle" style="color:green"></i>
             </a>
           </h2>
         </div>
-        <div class="col-sm-4">
-          <div class="search-box">
-            <i class="material-icons">&#xE8B6;</i>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Search&hellip;"
-            />
-          </div>
-        </div>
+        
       </div>
       <div class="row">
         <div class="col-sm-8"></div>
         <div class="col-sm-4 ">
           <h1>
-            <a href="/admin/report/all" class="float-right" target="blank">
+            <a href="/hotel.route/report/all" class="float-right" target="blank">
               <i class="fas fa-file-pdf" style="color:rgb(184, 75, 12)"></i>
             </a>
           </h1>
@@ -73,7 +64,7 @@
       <thead>
         <tr>
           <th>Hotel Number <i class="fa fa-sort"></i></th>
-          <th>Name</th>
+          <th>Hotel Name</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -81,25 +72,25 @@
         <% if(typeof hotels != 'undefined'){ %> <%
         hotels.forEach(function(hotel) { %>
         <tr>
-          <td><%= hotel.no%></td>
+          <td><%= hotel.roll%></td>
           <td><%= hotel.name%></td>
           <td>
             <a
-              href="/admin/<%=hotel._id%>"
+              href="/hotel.route/<%=hotel._id%>"
               class="view"
               title="View"
               data-toggle="tooltip"
               ><i class="material-icons">&#xE417;</i></a
             >
             <a
-              href="/admin/hupdate/<%=hotel._id%>"
+              href="/hotel.route/update/<%=hotel._id%>"
               class="edit"
               title="Edit"
               data-toggle="tooltip"
               ><i class="material-icons">&#xE254;</i></a
             >
             <a
-              href="/admin/hdelete/<%=hotel._id%>"
+              href="/hotel.route/delete/<%=hotel._id%>"
               class="delete"
               title="Delete"
               data-toggle="tooltip"
@@ -110,6 +101,5 @@
         <% }); %> <% } %>
       </tbody>
     </table>
-   
-  </div>
+    
 </div>

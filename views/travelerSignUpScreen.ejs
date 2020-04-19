@@ -15,23 +15,22 @@
 
   <div class="travelerSignInScreen">
     <div class="sideImgSignIn">
-      <h2>Travel Agency</h2>
+      <h2>Create Account</h2>
       <img id="signupside" src="/ASSETS/imgs/signupside.png" alt="IMG">
     </div>
     <div class="input-field signInForm">
 
       <div class="row mt-5">
         <div class="col-md-6 m-auto">
-          <div class="card card-body">
+          <div >
             <h1 class="text-center mb-3">
-              <i class="fas fa-user-plus"></i> Register
             </h1>
             <% include ./partials/messages %>
-            <form action="/users/SignUpScreen" method="POST">
+            <form action="/users/SignUpScreen" method="POST" class="row signinforminside">
               <div class="form-group">
-                <label for="name">Name</label>
+                <label style="color: black;" for="name">Name</label>
                 <input
-                  type="name"
+                  type="text"
                   id="name"
                   name="name"
                   class="form-control"
@@ -40,7 +39,7 @@
                 />
               </div>
               <div class="form-group">
-                <label for="email">Email</label>
+                <label style="color: black;" for="email">Email</label>
                 <input
                   type="email"
                   id="email"
@@ -51,7 +50,7 @@
                 />
               </div>
               <div class="form-group">
-                <label for="password">Password</label>
+                <label style="color: black;" for="password">Password</label>
                 <input
                   type="password"
                   id="password"
@@ -62,7 +61,7 @@
                 />
               </div>
               <div class="form-group">
-                <label for="password2">Confirm Password</label>
+                <label style="color: black;" for="password2">Confirm Password</label>
                 <input
                   type="password"
                   id="password2"
@@ -76,6 +75,7 @@
                 Register
               </button>
             </form>
+            <br>
             <p class="lead mt-4">Have An Account? <a href="/users/SignInScreen">Login</a></p>
           </div>
         </div>

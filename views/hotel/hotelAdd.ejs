@@ -1,14 +1,14 @@
 <div class="container">
   <h1>Add a New Hotel</h1>
-  <form action="/admin/hadd" method="POST">
+  <form action="/hotel.route/add" method="POST">
     <div class="form-group">
-      <label for="no">Hotel Number</label>
+      <label for="roll">Hotel Number</label>
       <input
         type="text"
         class="form-control"
-        id="no"
-        name="no"
-        placeholder="Number"
+        id="roll"
+        name="roll"
+        placeholder="Hotel Number"
       />
     </div>
     <div class="form-group">
@@ -18,7 +18,7 @@
         class="form-control"
         id="name"
         name="name"
-        placeholder="Name"
+        placeholder="Hotel Name"
       />
     </div>
     <input type="submit" name="submit" value="Add" class="btn btn-success" />

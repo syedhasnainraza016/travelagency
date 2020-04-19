@@ -1,8 +1,11 @@
 const express = require("express");
 const router = express.Router();
+
 // Load User Controller
 const agentController = require("../controllers/agent.controller");
 const bookingController = require("../controllers/booking.controller");
+
+
 
 const { forwardAuthenticated, ensureAuthenticated } = require("../config/agent.auth");
 
@@ -28,8 +31,13 @@ router.get('/resturaunt', ensureAuthenticated, (req, res) => res.render('restura
 
 router.get('/Detail', ensureAuthenticated, (req, res) => res.render('AgenteditDetails'));
 
+router.get('/locations', ensureAuthenticated, (req, res) => res.render('locations'));
 
-//Register Routes
+router.get('/contact', ensureAuthenticated, agentController.contact);
+router.post('/contact', agentController.contactUser);
+
+
+
 // Login Page
 router.get("/SignInScreen", forwardAuthenticated, agentController.login);
 // Register Page

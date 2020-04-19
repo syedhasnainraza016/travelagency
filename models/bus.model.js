@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 let BusSchema = new Schema(
   {
-    no: { type: Number, required: true },
+    roll: { type: Number, required: true },
     name: { type: String, required: true }
   },
   {

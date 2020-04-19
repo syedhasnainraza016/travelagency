@@ -4,7 +4,8 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const flash = require("connect-flash");
 const session = require("express-session");
-
+const nodemailer = require('nodemailer');
+const bodyParser = require('body-parser');
 const app = express();
 
 // Passport Config
@@ -48,7 +49,8 @@ app.use(function(req, res, next) {
   next();
 });
 
-
+process.env.NODE_TLS_REJECT_UNAUTHORIZED='0'
+ 
 // EJS
 app.use(expressLayouts);
 app.set("view engine", "ejs");
@@ -86,6 +88,14 @@ app.use("/", require("./routes/index.js"));
 app.use("/users", require("./routes/users.js"));
 app.use("/admin", require("./routes/admin.js"));
 app.use("/agent", require("./routes/agent.js"));
+app.use("/student.route", require("./routes/mytravelers.route.js"));
+app.use("/flight.route", require("./routes/flight.route.js"));
+app.use("/hotel.route", require("./routes/hotel.route.js"));
+app.use("/bus.route", require("./routes/bus.route.js"));
+app.use("/resturant.route", require("./routes/resturant.route.js"));
+app.use("/myagents.route", require("./routes/myagents.route.js"));
+
+
 
 const PORT = process.env.PORT || 3000;
 

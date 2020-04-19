@@ -16,17 +16,20 @@
             alt=""></a>
 
     <div id="agentSignIn">
+      
         <div id="agentSignInSide">
             <img src="/ASSETS/imgs/agnet.png" alt="">
         </div>
-        <div class="row mt-5">
+        <br>
             <div class="col-md-6 m-auto">
-              <div class="card card-body">
-                <h1 class="text-center mb-3"><i class="fas fa-sign-in-alt"></i>  Login</h1>
+              <br>
+              <br><br><br>
+              <div >
+                <h1 ><i class="fas fa-sign-in-alt"></i>  Login</h1>
                 <% include ./partials/messages %>
-                <form action="/agent/SignInScreen" method="POST">
-                  <div class="form-group">
-                    <label for="email">Email</label>
+                <form action="/agent/SignInScreen" method="POST" class="row signinforminside">
+                  <div >
+                    <label style="color: black;" for="email">Email</label>
                     <input
                       type="email"
                       id="email"
@@ -36,7 +39,7 @@
                     />
                   </div>
                   <div class="form-group">
-                    <label for="password">Password</label>
+                    <label style="color: black;" for="password">Password</label>
                     <input
                       type="password"
                       id="password"

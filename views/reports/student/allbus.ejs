@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-sm-8">
+          <h2><b>Buses </b>List</h2>
+        </div>
+      </div>
+    </div>
+    <table class="table table-striped table-hover table-bordered">
+      <thead>
+        <tr>
+          <th>Bus Number</th>
+          <th class="col-sm-8">Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if(typeof buss != 'undefined'){ %> <%
+        buss.forEach(function(bus) { %>
+        <tr>
+          <td><%= bus.roll%></td>
+          <td><%= bus.name%></td>
+        </tr>
+        <% }); %> <% } %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-sm-8">
+          <h2><b>Hotels </b>List</h2>
+        </div>
+      </div>
+    </div>
+    <table class="table table-striped table-hover table-bordered">
+      <thead>
+        <tr>
+          <th>Hotel Number</th>
+          <th class="col-sm-8">Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if(typeof hotels != 'undefined'){ %> <%
+        hotels.forEach(function(hotel) { %>
+        <tr>
+          <td><%= hotel.roll%></td>
+          <td><%= hotel.name%></td>
+        </tr>
+        <% }); %> <% } %>
+      </tbody>
+    </table>
+  </div>
+</div>

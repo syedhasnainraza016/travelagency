@@ -1,30 +1,31 @@
 const Resturant = require("../models/resturant.model");
+const pdf = require("html-pdf");
 const fs = require("fs");
 const options = { format: "A4" };
 
 // test function
 exports.test = function A(req, res) {
   res.render("test", {
-    layout: "layouts/noLayout"
+    layout: "noLayout"
   });
 };
 
 // Add new student function
 exports.add = function A(req, res) {
-  res.render("resturant/resturantAdd", { layout: "layouts/studentLayout" });
+  res.render("resturant/resturantAdd", { layout: "studentLayout" });
 };
 
 exports.update = async function(req, res) {
   let resturant = await Resturant.findOne({ _id: req.params.id });
   res.render("resturant/resturantUpdate", {
     resturant,
-    layout: "layouts/studentLayout"
+    layout: "studentLayout"
   });
 };
 
 exports.create = (req, res) => {
   let resturant = new Resturant({
-    no: req.body.no,
+    roll: req.body.roll,
     name: req.body.name
   });
 
@@ -35,7 +36,7 @@ exports.create = (req, res) => {
         .json({ err: "Oops something went wrong! Cannont insert resturant.." });
     }
     req.flash("student_add_success_msg", "New resturant added successfully");
-    res.redirect("/admin/all");
+    res.redirect("/resturant.route/all");
   });
 };
 
@@ -48,21 +49,21 @@ exports.details = (req, res) => {
     }
     res.render("resturant/resturantDetail", {
       resturant,
-      layout: "layouts/studentLayout"
+      layout: "studentLayout"
     });
   });
 };
 
 exports.all = (req, res) => {
-  Resturant.find(function(err, resturant) {
+  Resturant.find(function(err, resturants) {
     if (err) {
       return res
         .status(400)
-        .json({ err: "Oops something went wrong! Cannont find resturant." });
+        .json({ err: "Oops something went wrong! Cannont find resturants." });
     }
     res.status(200).render("resturant/resturantAll", {
-      resturant,
-      layout: "layouts/studentLayout"
+      resturants,
+      layout: "studentLayout"
     });
     //res.send(students);
   });
@@ -79,7 +80,7 @@ exports.updateResturant = async (req, res) => {
       err: `Oops something went wrong! Cannont update resturant with ${req.params.id}.`
     });
   req.flash("student_update_success_msg", "Resturant updated successfully");
-  res.redirect("/admin/all");
+  res.redirect("/resturant.route/all");
 };
 
 exports.delete = async (req, res) => {
@@ -89,5 +90,34 @@ exports.delete = async (req, res) => {
       err: `Oops something went wrong! Cannont delete resturant with ${req.params.id}.`
     });
   req.flash("student_del_success_msg", "Resturant has been deleted successfully");
-  res.redirect("/admin/all");
+  res.redirect("/resturant.route/all");
+};
+
+exports.allReport = (req, res) => {
+  Resturant.find(function(err, resturants) {
+    if (err) {
+      return res
+        .status(400)
+        .json({ err: "Oops something went wrong! Cannont find resturants." });
+    }
+    res.status(200).render(
+      "reports/student/allrest",
+      {
+        resturants,
+        layout: "studentLayout"
+      },
+      function(err, html) {
+        pdf
+          .create(html, options)
+          .toFile("uploads/ResturantsReport.pdf", function(err, result) {
+            if (err) return console.log(err);
+            else {
+              var datafile = fs.readFileSync("uploads/ResturantsReport.pdf");
+              res.header("content-type", "application/pdf");
+              res.send(datafile);
+            }
+          });
+      }
+    );
+  });
 };
