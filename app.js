@@ -1,12 +1,14 @@
-const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
-const mongoose = require("mongoose");
 const passport = require("passport");
 const flash = require("connect-flash");
 const session = require("express-session");
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
-const app = express();
+//for comments
+var express = require("express");
+var app = new express();
+var http = require("http").Server(app);
+var io = require("socket.io")(http);
 
 // Passport Config
 require("./config/passport")(passport);
@@ -15,10 +17,10 @@ require("./config/passport")(passport);
 const db = require("./config/keys").mongoURI;
 
 // Connect to MongoDB
-mongoose
-  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("MongoDB Connected"))
-  .catch(err => console.log(err));
+//mongoose
+  //.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+  //.then(() => console.log("MongoDB Connected"))
+  //.catch(err => console.log(err));
 
 
   // Express session
@@ -83,6 +85,8 @@ app.use(function(req, res, next) {
   next();
 });
 
+
+
 // Routes
 app.use("/", require("./routes/index.js"));
 app.use("/users", require("./routes/users.js"));
@@ -97,6 +101,60 @@ app.use("/myagents.route", require("./routes/myagents.route.js"));
 
 
 
-const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, console.log(`Server started on port ${PORT}`));
+//comment system
+var Posts = require('./schema/posts');
+var Comments = require('./schema/comments');
+
+var port = process.env.port || 3000;
+
+
+app.use(express.static(__dirname + "/public" ));
+app.set('view engine', 'ejs');
+
+
+app.get('/comments',function(req,res){
+    Posts.find({}, function(err, posts) {
+        if (err) {
+          console.log(err);
+        } else {
+          res.render('comments', { posts: posts });
+        }
+    }); 
+});
+
+
+app.get('/posts/detail/:id',function(req,res){
+    Posts.findById(req.params.id, function (err, postDetail) {
+        if (err) {
+          console.log(err);
+        } else {
+            Comments.find({'postId':req.params.id}, function (err, comments) {
+                res.render('post-detail', { postDetail: postDetail, comments: comments, postId: req.params.id });
+            });
+        }
+    }); 
+});
+
+
+// DB connection
+var mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb+srv://admin:12345admin@momgodb01.dvkbv.mongodb.net/test', { useMongoClient: true })
+.then(() => console.log('connection succesful'))
+.catch((err) => console.error(err));
+// DB connection end
+
+
+io.on('connection',function(socket){
+    socket.on('comment',function(data){
+        var commentData = new Comments(data);
+        commentData.save();
+        socket.broadcast.emit('comment',data);  
+    });
+
+});
+
+http.listen(port,function(){
+console.log("Server running at port "+ port);
+});

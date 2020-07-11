@@ -68,6 +68,21 @@ exports.all = (req, res) => {
   });
 };
 
+exports.app = (req, res) => {
+  Student.find(function(err, students) {
+    if (err) {
+      return res
+        .status(400)
+        .json({ err: "Oops something went wrong! Cannont find students." });
+    }
+    res.status(200).render("student/studentAll", {
+      students,
+      layout: "studentLayout"
+    });
+    //res.send(students);
+  });
+};
+
 // Post Update to insert data in database
 exports.updateStudent = async (req, res) => {
   let result = await Student.updateOne(

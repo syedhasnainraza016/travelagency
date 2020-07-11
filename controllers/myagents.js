@@ -9,7 +9,7 @@ exports.test = function A(req, res) {
   });
 };
 
-// Add new student function
+// Add new agent function
 exports.add = function A(req, res) {
   res.render("myagents/studentAdd", { layout: "studentLayout" });
 };

@@ -13,6 +13,11 @@ const AgentSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  //for email verification
+  //confirmed: {
+    //type: DataTypes.BOOLEAN,
+    //defaultValue: false,
+  //},
   date: {
     type: Date,
     default: Date.now

@@ -38,6 +38,10 @@ exports.registerAgent = (req, res) => {
       password2
     });
   }
+  //for email verification 
+  //if (!Agent.confirmed) {
+    //throw new Error('Please confirm your email to login');
+ //}
    else {
     Agent.findOne({ email: email }).then(agent => {
       if (agent) {

@@ -1,25 +1,19 @@
 <div class="container">
-  
   <div class="table-wrapper">
     <div class="table-title">
       <div class="row">
         <div class="col-sm-8">
           <h2>
-            <b>Flights </b>List
-            <a href="/flight.route/add" class="">
-              <i class="fas fa-plus-circle" style="color:green"></i>
-            </a>
+            <b>Buses </b>List
           </h2>
         </div>
-       
+        
       </div>
       <div class="row">
         <div class="col-sm-8"></div>
         <div class="col-sm-4 ">
           <h1>
-            <a href="/flight.route/report/all" class="float-right" target="blank">
-              <i class="fas fa-file-pdf" style="color:rgb(184, 75, 12)"></i>
-            </a>
+            
           </h1>
         </div>
       </div>
@@ -64,34 +58,28 @@
     <table class="table table-striped table-hover table-bordered">
       <thead>
         <tr>
-          <th>Flight Number <i class="fa fa-sort"></i></th>
-          <th>Flight Name</th>
-          <th>Actions</th>
+          <th>Bus Number <i class="fa fa-sort"></i></th>
+          <th>Bus Name</th>
+         
         </tr>
       </thead>
       <tbody>
-        <% if(typeof flights != 'undefined'){ %> <%
-       flights.forEach(function(flight) { %>
+        <% if(typeof buss != 'undefined'){ %> <%
+       buss.forEach(function(bus) { %>
         <tr>
-          <td><%= flight.roll%></td>
-          <td><%= flight.name%></td>
+          <td><%= bus.roll%></td>
+          <td><%= bus.name%></td>
           <td>
             <a
-              href="/flight.route/<%=flight._id%>"
+              href="/bus.route/<%=bus._id%>"
               class="view"
               title="View"
               data-toggle="tooltip"
               ><i class="material-icons">&#xE417;</i></a
             >
+            
             <a
-              href="/flight.route/update/<%=flight._id%>"
-              class="edit"
-              title="Edit"
-              data-toggle="tooltip"
-              ><i class="material-icons">&#xE254;</i></a
-            >
-            <a
-              href="/flight.route/delete/<%=flight._id%>"
+              href="/bus.route/delete/<%=bus._id%>"
               class="delete"
               title="Delete"
               data-toggle="tooltip"
@@ -102,6 +90,6 @@
         <% }); %> <% } %>
       </tbody>
     </table>
-   
+    
   </div>
 </div>

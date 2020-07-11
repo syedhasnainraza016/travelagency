@@ -33,6 +33,10 @@ router.get('/Detail', ensureAuthenticated, (req, res) => res.render('AgenteditDe
 
 router.get('/locations', ensureAuthenticated, (req, res) => res.render('locations'));
 
+router.get('/offers', ensureAuthenticated, (req, res) => res.render('offers'));
+
+router.get('/about', ensureAuthenticated, (req, res) => res.render('aboutus'));
+
 router.get('/contact', ensureAuthenticated, agentController.contact);
 router.post('/contact', agentController.contactUser);
 

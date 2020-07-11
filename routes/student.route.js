@@ -12,6 +12,7 @@ router.get("/:id", student_controller.details);
 router.get("/update/:id", student_controller.update);
 router.post("/update/:id", student_controller.updateStudent);
 router.get("/delete/:id", student_controller.delete);
+router.get("/app", student_controller.app);
 
 
 module.exports = router;

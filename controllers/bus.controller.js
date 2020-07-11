@@ -10,7 +10,7 @@ exports.test = function A(req, res) {
   });
 };
 
-// Add new student function
+// Add new bus function
 exports.add = function A(req, res) {
   res.render("bus/busAdd", { layout: "studentLayout" });
 };

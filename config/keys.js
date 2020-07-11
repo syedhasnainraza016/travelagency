@@ -1,4 +1,4 @@
-dbPassword = 'mongodb+srv://uos:uos@uostrvaelagency-dvkbv.mongodb.net/test?retryWrites=true&w=majority'
+dbPassword = 'mongodb://localhost:27017/Shopper'
 
 module.exports = {
     mongoURI: dbPassword

@@ -10,7 +10,7 @@ exports.test = function A(req, res) {
   });
 };
 
-// Add new student function
+// Add new resturant function
 exports.add = function A(req, res) {
   res.render("resturant/resturantAdd", { layout: "studentLayout" });
 };
