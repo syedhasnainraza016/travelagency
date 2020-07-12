@@ -18,10 +18,6 @@
     "express-ejs-layouts": "^2.5.0",
     "express-session": "^1.15.6",
     "html-pdf": "^2.2.0",
-<<<<<<< HEAD
-    "http": "0.0.1-security",
-=======
->>>>>>> 1c018a2b3648d894018b81306578b374efb2523d
     "mongoose": "^5.7.5",
     "nodemailer": "^6.4.6",
     "passport": "^0.4.0",
