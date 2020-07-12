@@ -5,7 +5,11 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+"build": "react-scripts build",
+"test": "react-scripts test --env=jsdom",
+"eject": "react-scripts eject",
+"heroku-postbuild": "npm run build"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +26,7 @@
     "nodemailer": "^6.4.6",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
+    "serve": "^11.3.2",
     "socket.io": "*"
   },
   "devDependencies": {
