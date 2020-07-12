@@ -140,7 +140,7 @@ app.get('/posts/detail/:id',function(req,res){
 // DB connection
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb+srv://admin:12345admin@momgodb01.dvkbv.mongodb.net/test', { useMongoClient: true })
+mongoose.connect('mongodb+srv://admin:12345admin@momgodb01.dvkbv.mongodb.net/test')
 .then(() => console.log('connection succesful'))
 .catch((err) => console.error(err));
 // DB connection end
