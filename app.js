@@ -14,7 +14,6 @@ var io = require("socket.io")(http);
 require("./config/passport")(passport);
 
 // DB Config
-const db = require("./config/keys").mongoURI;
 
 // Connect to MongoDB
 //mongoose
