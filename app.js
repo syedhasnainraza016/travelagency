@@ -139,7 +139,7 @@ app.get('/posts/detail/:id',function(req,res){
 // DB connection
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://admin:12345admin@momgodb01-shard-00-00.dvkbv.mongodb.net:27017,momgodb01-shard-00-01.dvkbv.mongodb.net:27017,momgodb01-shard-00-02.dvkbv.mongodb.net:27017/<dbname>?ssl=true&replicaSet=atlas-spcaf7-shard-0&authSource=admin&retryWrites=true&w=majority')
+mongoose.connect('mongodb://admin:12345admin@momgodb01-shard-00-00.dvkbv.mongodb.net:27017,momgodb01-shard-00-01.dvkbv.mongodb.net:27017,momgodb01-shard-00-02.dvkbv.mongodb.net:27017/test?ssl=true&replicaSet=atlas-spcaf7-shard-0&authSource=admin&retryWrites=true&w=majority')
 .then(() => console.log('connection succesful'))
 .catch((err) => console.error(err));
 // DB connection end
