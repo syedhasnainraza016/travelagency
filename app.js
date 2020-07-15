@@ -105,7 +105,7 @@ app.use("/myagents.route", require("./routes/myagents.route.js"));
 var Posts = require('./schema/posts');
 var Comments = require('./schema/comments');
 
-var port = process.env.port || 3000;
+var port = process.env.PORT || 3000;
 
 
 app.use(express.static(__dirname + "/public" ));
